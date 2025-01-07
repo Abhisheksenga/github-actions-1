@@ -11,9 +11,8 @@ jobs:
 
       - name: List and read the files
         run: |
-            echo "My First github actions"
-            ls
-            cat README.md
+             chmod +x test-script.sh
+             ./test-script.sh
     #   - name: List of files
     #     run: ls
 
