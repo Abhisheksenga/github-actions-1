@@ -1,4 +1,4 @@
-name : step-variable
+name : job-variable
 
 on : push
 
