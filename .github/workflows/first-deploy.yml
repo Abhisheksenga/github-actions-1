@@ -13,6 +13,12 @@ jobs:
         run: |
              chmod +x test-script.sh
              ./test-script.sh
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          name: test-file
+          path: test.txt
+            
   second_job:
     needs: [first_job]
     runs-on: ubuntu-latest
@@ -23,5 +29,10 @@ jobs:
       - name: List of files
         run: ls
 
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+            name: test-file1
       - name: read file
-        run: cat README.md
+        run: cat test.txt
+    
