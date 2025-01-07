@@ -9,7 +9,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4.2.2
 
-      - name: List and read the files
+      - name: Execute Shell script
         run: |
              chmod +x test-script.sh
              ./test-script.sh
