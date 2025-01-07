@@ -13,8 +13,11 @@ jobs:
         run: |
              chmod +x test-script.sh
              ./test-script.sh
-    #   - name: List of files
-    #     run: ls
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of files
+        run: ls
 
-    #   - name: read file
-    #     run: cat README.md
+      - name: read file
+        run: cat README.md
