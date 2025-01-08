@@ -1,6 +1,6 @@
 name : my-first-action
 
-on : push
+on: workflow_dispatch
 
 jobs:
   first_job:
@@ -27,7 +27,9 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: List of files
-        run: ls
+        run: |
+            ls
+            sleep 600s
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4.1.8
@@ -35,4 +37,5 @@ jobs:
             name: test-file
       - name: read file
         run: cat test.txt
+
     
