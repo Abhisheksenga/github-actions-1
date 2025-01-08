@@ -12,11 +12,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Create new env variable
-              run: echo "USERNAME = $USER1 " >> $GITHUB_ENV
+              run: echo "USERNAME = ${{ env.USER1 }} " >> $GITHUB_ENV
 
             - name: Use new env var
               run: | 
-                   echo "new env var = $USERNAME"
+                   echo "new env var = ${{ env.USERNAME }}"
                    
             
             - name: Print env var
