@@ -1,6 +1,8 @@
 name : matrix-workflow
 
-on: push
+on: 
+    push:
+    workflow_dispatch:
 concurrency: 
     group: production-step
     cancel-in-progress: true
