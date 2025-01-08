@@ -9,7 +9,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest,windows-latest]
-        images: [hello-world]
+        images: [hello-world,alpine]
+        exclude:
+          - images: alpine
+            os: windows-latest
+        include:
+          - images: amd64/alpine
+            os: ubuntu-latest
     runs-on: ${{matrix.os}}
     steps:
       - name: Running images ${{matrix.images}} on ${{matrix.os}}
