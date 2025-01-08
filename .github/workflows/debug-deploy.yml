@@ -17,7 +17,7 @@ jobs:
             - name: Use new env var
               run: | 
                    echo "new env var = $USERNAME"
-                   exit 1
+                   
             
             - name: Print env var
               run: echo " user2 = $USER2"
