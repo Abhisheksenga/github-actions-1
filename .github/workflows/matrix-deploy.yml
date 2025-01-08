@@ -12,5 +12,5 @@ jobs:
         images: [hello-world]
     runs-on: ${{matrix.os}}
     steps:
-      - name: Running images ${{matrix.images}}
+      - name: Running images ${{matrix.images}} on ${{matrix.os}}
         run: docker run ${{matrix.images}}
