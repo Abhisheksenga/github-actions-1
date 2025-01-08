@@ -1,0 +1,23 @@
+name: Debug Workflow
+
+on:
+    push
+
+env:
+    USER1: "foo"
+    USER2: "boo"
+
+jobs:
+    debug_jobs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create new env variable
+              run: echo "USERNAME = $USER1" >> $GITHUB_ENV
+
+            - name: Use new env var
+              run: | 
+                   echo "new env var = $USERNAME"
+                   exit 1
+            
+            - name: Print env var
+              run: echo " user2 = $USER2"
