@@ -1,4 +1,4 @@
-name: Debug Workflow
+name: input-workflow
 
 on:
    workflow_dispatch: 
