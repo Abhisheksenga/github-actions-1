@@ -19,7 +19,7 @@ env:
 jobs:
     debug_jobs:
         runs-on: ubuntu-latest
-        if: ${{ inputs.job-run == 'Job'}} && ${{ inputs.test-run == 'true'}}
+        if: ${{ inputs.test-run == 'true'}}
         steps:
             - name: Create new env variable
               run: echo "USERNAME=${{ env.USER1 }} " >> $GITHUB_ENV
