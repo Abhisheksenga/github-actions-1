@@ -1,0 +1,33 @@
+name: Debug Workflow
+
+on:
+   workflow_dispatch: 
+    inputs:
+      test-run:
+        type: boolean
+        description: "To enable test runnner"
+        required: true
+      job-run:
+        type: string
+        required: true
+        description: "Job name" 
+
+env:
+    USER1: "foo"
+    USER2: "boo"
+
+jobs:
+    debug_jobs:
+        runs-on: ubuntu-latest
+        if: ${{ inputs.job-run == 'Job'}} && ${{ inputs.test-run == 'true'}}
+        steps:
+            - name: Create new env variable
+              run: echo "USERNAME=${{ env.USER1 }} " >> $GITHUB_ENV
+
+            - name: Use new env var
+              run: | 
+                   echo "new env var = ${{ env.USERNAME }}"
+                   
+            
+            - name: Print env var
+              run: echo " user2 = ${{ env.USER2 }}"
