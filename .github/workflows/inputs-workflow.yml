@@ -10,7 +10,12 @@ on:
       job-run:
         type: string
         required: true
-        description: "Job name" 
+        description: "Job name"
+      branch-choice:
+        type: choice
+        options:
+          - Main
+          - Test
 
 env:
     USER1: "foo"
@@ -19,7 +24,9 @@ env:
 jobs:
     debug_jobs:
         runs-on: ubuntu-latest
-        if: ${{ inputs.test-run == 'true'}}
+        if: |
+            ${{ inputs.job-run == 'Job'}} 
+            ${{ inputs.branch-choice == 'Main'}} 
         steps:
             - name: Create new env variable
               run: echo "USERNAME=${{ env.USER1 }} " >> $GITHUB_ENV
