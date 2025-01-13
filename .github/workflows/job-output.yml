@@ -1,0 +1,23 @@
+name : job-output
+
+on: workflow_dispatch
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    outputs:
+      URL: ${{steps.job-output.outputs.URL}}
+    steps:
+      - name: Set job output
+        id: job-output
+        run: echo "URL=localhost" >> "$GITHUB_OUTPUT"
+            
+  second_job:
+    needs: [first_job]
+    timeout-minutes: 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch previous job output
+        run: echo "${{needs.first_job.outputs.URL}}"
+        
+    
