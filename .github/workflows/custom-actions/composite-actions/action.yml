@@ -1,0 +1,11 @@
+name: 'Branch checkout Action'
+description: 'Checkout branch and list all files present'
+runs:
+    using: "composite"
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4.2.2
+
+      - name: List of files
+        run: ls
+        shell: bash

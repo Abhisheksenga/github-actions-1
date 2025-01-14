@@ -6,8 +6,13 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4.2.2
+      # - name: Checkout Repo
+      #   uses: actions/checkout@v4.2.2
+
+      # - name: List of files
+      #   run: ls
+      - name: Use custom composite actions
+        uses: ./.github/workflows/custom-actions/composite-actions
 
       - name: Execute Shell script
         run: |
@@ -24,11 +29,13 @@ jobs:
     needs: [first_job]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4.2.2
+      # - name: Checkout Repo
+      #   uses: actions/checkout@v4.2.2
 
-      - name: List of files
-        run: ls
+      # - name: List of files
+      #   run: ls
+      - name: Use custom composite actions
+        uses: ./.github/workflows/custom-actions/composite-actions
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4.1.8
